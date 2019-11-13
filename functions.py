@@ -6,7 +6,7 @@ import os
 def access_dontpad(dontpad):
     link = requests.get(dontpad)
     soup = BeautifulSoup(link.text, "html.parser")
-    text = soup.find('textarea')
+    text = soup.find('textarea').get_text()
     return text
 
 
@@ -43,7 +43,7 @@ def edit_dontpad(dontpad):
 def main():
     endereco = input()
     # download_dontpad("http://dontpad.com/"+endereco+"/")
-    # edit_dontpad("http://dontpad.com/"+endereco+"/")
+    edit_dontpad("http://dontpad.com/"+endereco+"/")
     # download_dontpad_links("http://dontpad.com/"+endereco+"/")
     exit()
 
